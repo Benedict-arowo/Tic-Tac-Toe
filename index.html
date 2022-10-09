@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Tic-Tac-Toe</title>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<div id="menu">
+			<div id="menu--container">
+				<h1 class="title">Tic-Tac-Toe</h1>
+				<div id="player--config">
+					<h3>Player Configuration</h3>
+						<input class="playerField" data-id="1" type="text" placeholder="Player 1:" name="" id="p1--name" />
+						<input class="playerField" data-id="2" type="text" name="" id="p2--name" placeholder="Player 2:" />
+					<button type="submit" id="play--btn">Play</button>
+				</div>
+			</div>
+		</div>
+
+		<div id="game--container">
+			<h1 class="title">TicTacToe</h1>
+			<p id="player"><span id="current--player"></span>'s turn</p>
+
+			<div class="gameboard">
+				<div data-id="0" data-position="0">0 0</div>
+				<div data-id="1" data-position="0">0 1</div>
+				<div data-id="2" data-position="0">0 2</div>
+				<div data-id="0" data-position="1">1 0</div>
+				<div data-id="1" data-position="1">1 1</div>
+				<div data-id="2" data-position="1">1 2</div>
+				<div data-id="0" data-position="2">2 0</div>
+				<div data-id="1" data-position="2">2 1</div>
+				<div data-id="2" data-position="2">2 2</div>
+			</div>
+
+			<div id="stats--container">
+				<p id="stats--paragraph">Player1 has won the game</p>
+				<div id="stats--btns">
+					<button id="reset--btn">Replay</button>
+					<button id="new-game--btn">New Game</button>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="script.js"></script>
+</html>
