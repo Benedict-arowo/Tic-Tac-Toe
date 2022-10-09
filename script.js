@@ -56,6 +56,7 @@ const gameboard = {
         ['', '', ''],
         ['', '', ''] 
     ],
+    active: false,
     updateDisplay: () => {
         const board = gameboard.board;
         let result = 0;
@@ -78,9 +79,11 @@ const gameboard = {
     },
     startgame: () => {
         menu.style.display = 'none'; // Removes the menu from the DOM
+        gameboard.active = true;
         gameboard.updateDisplay();
     },
     endgame: ({mode, winner}) => {
+        gameboard.active = false;
         if (mode == 'draw') {
             winnerParagraph.innerText = `Draw`;
         }
@@ -95,6 +98,7 @@ const gameboard = {
             ['', '', ''],
             ['', '', '']
         ];
+        gameboard.active = true;
         gameboard.updateDisplay()
         winnerDisplay.style.cssText = 'opacity: 0; user-select: none;';
     },
@@ -123,7 +127,7 @@ items.forEach(item => {
             position: e.currentTarget.dataset.position
         }
         currentItem = gameboard.board[itemProps.position][itemProps.id] 
-        if (currentItem == '') { // Makes sure the current field is empty.
+        if (currentItem == '' && gameboard.active == true) { // Makes sure the current field is empty.
             gameboard.board[itemProps.position][itemProps.id] = currentPlayer.marker
             currentPlayer = currentPlayer == player1 ? player2 : player1 // Changes the current player to the next player. If the current player has made a valid move.
         }
